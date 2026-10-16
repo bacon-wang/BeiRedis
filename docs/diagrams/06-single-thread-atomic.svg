@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+  </defs>
+  <text x="400" y="36" text-anchor="middle" font-size="16" font-weight="bold">为什么单线程让 INCR 不会算错</text>
+  <line x1="400" y1="60" x2="400" y2="470" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <!-- LEFT -->
+  <text x="200" y="72" text-anchor="middle" font-weight="bold" fill="#dc2626">如果两个线程同时改</text>
+  <text x="80" y="104" text-anchor="middle" font-weight="bold">线程 A</text>
+  <text x="320" y="104" text-anchor="middle" font-weight="bold">线程 B</text>
+  <line x1="80" y1="114" x2="80" y2="400" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="320" y1="114" x2="320" y2="400" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="160" y="88" width="80" height="34" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="200" y="110" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13">值 = 100</text>
+  <text x="34" y="330" font-size="12" fill="#64748b" transform="rotate(90 34 330)">时间 →</text>
+  <g font-size="13">
+    <circle cx="80" cy="160" r="5" fill="#475569"/><rect x="92" y="146" width="110" height="28" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/><text x="147" y="165" text-anchor="middle">① A 读到 100</text>
+    <circle cx="320" cy="215" r="5" fill="#475569"/><rect x="198" y="201" width="110" height="28" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/><text x="253" y="220" text-anchor="middle">② B 读到 100</text>
+    <circle cx="80" cy="270" r="5" fill="#475569"/><rect x="92" y="256" width="120" height="28" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/><text x="152" y="275" text-anchor="middle">③ A 写回 101</text>
+    <circle cx="320" cy="325" r="5" fill="#dc2626"/><rect x="188" y="311" width="120" height="28" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/><text x="248" y="330" text-anchor="middle" fill="#dc2626">④ B 写回 101</text>
+  </g>
+  <rect x="80" y="420" width="240" height="40" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="200" y="445" text-anchor="middle" font-weight="bold" fill="#dc2626">结果 101 ×（少加了一次）</text>
+  <!-- RIGHT -->
+  <text x="600" y="72" text-anchor="middle" font-weight="bold" fill="#16a34a">Redis：命令排队，一个线程依次执行</text>
+  <text x="430" y="104" font-size="12" fill="#64748b">命令队列（先来先执行）</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="12" text-anchor="middle">
+    <rect x="430" y="114" width="108" height="46" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="484" y="133">INCR</text><text x="484" y="151" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#64748b">来自程序1</text>
+    <rect x="546" y="114" width="108" height="46" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="600" y="133">INCR</text><text x="600" y="151" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#64748b">来自程序2</text>
+    <rect x="662" y="114" width="108" height="46" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="716" y="133">INCR</text><text x="716" y="151" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#64748b">来自程序3</text>
+  </g>
+  <line x1="600" y1="160" x2="600" y2="196" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="510" y="200" width="180" height="42" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="600" y="226" text-anchor="middle" font-weight="bold">唯一的执行线程</text>
+  <line x1="600" y1="242" x2="600" y2="278" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="612" y="265" font-size="12" fill="#64748b">一条执行完再下一条</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="13" text-anchor="middle">
+    <rect x="432" y="282" width="62" height="34" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/><text x="463" y="304">100</text>
+    <rect x="522" y="282" width="62" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="553" y="304">101</text>
+    <rect x="612" y="282" width="62" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="643" y="304">102</text>
+    <rect x="702" y="282" width="62" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="733" y="304">103</text>
+  </g>
+  <g stroke="#16a34a" stroke-width="1.5">
+    <line x1="494" y1="299" x2="518" y2="299" marker-end="url(#ag)"/>
+    <line x1="584" y1="299" x2="608" y2="299" marker-end="url(#ag)"/>
+    <line x1="674" y1="299" x2="698" y2="299" marker-end="url(#ag)"/>
+  </g>
+  <rect x="480" y="420" width="240" height="40" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="600" y="445" text-anchor="middle" font-weight="bold" fill="#16a34a">结果 103 ✓</text>
+  <text x="400" y="490" text-anchor="middle" font-size="12" fill="#64748b">左边的"读→加一→写"被别的线程插了队；右边每条 INCR 从头到尾不会被打断</text>
+</svg>

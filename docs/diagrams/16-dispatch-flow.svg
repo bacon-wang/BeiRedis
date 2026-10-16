@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 780" width="800" height="780" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+</defs>
+<text x="400" y="32" text-anchor="middle" font-size="16" font-weight="bold">Dispatcher：执行 + 决定要不要写 AOF</text>
+<rect x="160" y="52" width="120" height="36" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/><text x="220" y="75" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#0f172a">args</text>
+<line x1="220" y1="88" x2="220" y2="106" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="100" y="108" width="240" height="40" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="122" y="133">查命令表</text><text x="186" y="133" font-family="Menlo, Consolas, monospace" font-size="13">find(args[0])</text>
+<line x1="220" y1="148" x2="220" y2="166" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+<polygon points="220,168 300,200 220,232 140,200" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="220" y="205" text-anchor="middle">找到？</text>
+<line x1="300" y1="200" x2="368" y2="200" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ar)"/><text x="312" y="193" font-size="13" fill="#dc2626">否</text>
+<rect x="370" y="180" width="230" height="40" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/><text x="382" y="205" fill="#dc2626">抛</text><text x="400" y="205" font-family="Menlo, Consolas, monospace" font-size="13" fill="#dc2626">UnknownCommandException</text>
+<line x1="220" y1="232" x2="220" y2="256" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/><text x="230" y="250" font-size="13" fill="#16a34a">是</text>
+<polygon points="220,258 300,290 220,322 140,290" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="220" y="295" text-anchor="middle">arity 对？</text>
+<line x1="300" y1="290" x2="368" y2="290" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ar)"/><text x="312" y="283" font-size="13" fill="#dc2626">否</text>
+<rect x="370" y="270" width="230" height="40" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/><text x="406" y="295" fill="#dc2626">抛</text><text x="424" y="295" font-family="Menlo, Consolas, monospace" font-size="13" fill="#dc2626">ArgCountException</text>
+<line x1="220" y1="322" x2="220" y2="346" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/><text x="230" y="340" font-size="13" fill="#16a34a">是</text>
+<rect x="110" y="348" width="220" height="40" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="220" y="373" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#0f172a">cmd.execute(db, args)</text>
+<line x1="220" y1="388" x2="220" y2="406" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+<polygon points="220,408 300,440 220,472 140,440" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="220" y="445" text-anchor="middle">抛异常？</text>
+<line x1="300" y1="440" x2="368" y2="440" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ar)"/><text x="312" y="433" font-size="13" fill="#dc2626">是</text>
+<rect x="370" y="420" width="230" height="40" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/><text x="485" y="445" text-anchor="middle"  fill="#dc2626">异常往上抛（不会写 AOF）</text>
+<line x1="220" y1="472" x2="220" y2="496" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/><text x="230" y="490" font-size="13" fill="#16a34a">否</text>
+<polygon points="220,498 350,540 220,582 90,540" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="220" y="545" text-anchor="middle">isWrite() 且不在重放？</text>
+<line x1="220" y1="582" x2="220" y2="616" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/><text x="230" y="604" font-size="13" fill="#475569">是</text>
+<rect x="130" y="618" width="180" height="40" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/><text x="220" y="643" text-anchor="middle"  fill="#ea580c">追加到 data.aof</text>
+<line x1="220" y1="658" x2="220" y2="686" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="130" y="688" width="180" height="40" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="220" y="713" text-anchor="middle"  fill="#16a34a">返回回复</text>
+<path d="M350,540 H380 V708 H312" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/><text x="362" y="533" font-size="13" fill="#475569">否（读命令 / 重放中）</text>
+<rect x="636" y="226" width="150" height="190" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="711" y="256" text-anchor="middle" font-size="13"  fill="#475569">handle() 外层</text>
+<text x="711" y="277" text-anchor="middle" font-size="13"  fill="#475569">（框架）</text>
+<text x="711" y="319" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#475569">catch</text>
+<text x="711" y="340" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#475569">RedisException</text>
+<text x="711" y="361" text-anchor="middle" font-size="13"  fill="#475569">→ 转成</text>
+<text x="711" y="382" text-anchor="middle" font-size="13" font-family="Menlo, Consolas, monospace" fill="#475569">(error) …</text>
+<text x="711" y="403" text-anchor="middle" font-size="13"  fill="#475569">返回给客户端</text>
+<path d="M600,200 H618 V240 H634" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+<path d="M600,290 H618 V290 H634" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+<path d="M600,440 H618 V400 H634" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+<text x="400" y="760" text-anchor="middle" font-size="12" fill="#64748b">只有“执行成功 + 是写命令 + 不是在启动重放”三个条件都满足，才会写 AOF</text>
+</svg>

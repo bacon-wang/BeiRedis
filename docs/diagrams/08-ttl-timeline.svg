@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+  </defs>
+  <text x="400" y="36" text-anchor="middle" font-size="16" font-weight="bold">过期时间与惰性删除</text>
+  <!-- ticks: 10:00:00 x=90, 10:00:30 x=230, 10:01:00 x=370, 10:05:00 x=680 (axis 不按比例) -->
+  <rect x="420" y="232" width="270" height="58" rx="8" fill="#ffedd5" stroke="none"/>
+  <text x="555" y="270" text-anchor="middle" font-size="13" fill="#ea580c">key 还占着内存，但对外不可见</text>
+  <line x1="50" y1="220" x2="756" y2="220" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="550" y1="213" x2="562" y2="227" stroke="#475569" stroke-width="1.5"/>
+  <line x1="558" y1="213" x2="570" y2="227" stroke="#475569" stroke-width="1.5"/>
+  <g font-size="12" fill="#64748b" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+    <text x="100" y="246">10:00:00</text><text x="270" y="246">10:00:30</text><text x="420" y="306">10:01:00</text><text x="690" y="306">10:05:00</text>
+  </g>
+  <g fill="#475569"><circle cx="100" cy="220" r="5"/><circle cx="270" cy="220" r="5"/><circle cx="420" cy="220" r="6" fill="#ea580c"/><circle cx="690" cy="220" r="5"/></g>
+  <!-- events -->
+  <line x1="100" y1="155" x2="100" y2="214" stroke="#475569" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="15" y="90" width="175" height="64" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="102" y="115" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13">SET code 1234 EX 60</text>
+  <text x="102" y="140" text-anchor="middle" font-size="12" fill="#64748b">过期时刻 = 10:01:00</text>
+  <line x1="270" y1="155" x2="270" y2="214" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="200" y="100" width="160" height="54" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="280" y="122" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#16a34a">GET code → "1234"</text>
+  <text x="280" y="143" text-anchor="middle" font-size="12" fill="#16a34a">未过期</text>
+  <line x1="420" y1="155" x2="420" y2="214" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="372" y="100" width="190" height="54" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="467" y="122" text-anchor="middle" font-size="13" fill="#ea580c">到期了，但什么都不发生</text>
+  <text x="467" y="143" text-anchor="middle" font-size="12" fill="#ea580c">（没有定时器）</text>
+  <line x1="690" y1="165" x2="690" y2="214" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <rect x="590" y="70" width="190" height="94" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <g font-size="13" fill="#dc2626" text-anchor="middle">
+    <text x="685" y="92" font-family="Menlo, Consolas, monospace">GET code</text>
+    <text x="685" y="112">→ 发现已过期</text>
+    <text x="685" y="132">→ 删除</text>
+    <text x="685" y="152" font-family="Menlo, Consolas, monospace">→ (nil)</text>
+  </g>
+  <text x="400" y="350" text-anchor="middle" font-size="12" fill="#64748b">惰性删除：不主动扫描，等下次有人访问这个 key 时才检查是否过期</text>
+  <text x="400" y="372" text-anchor="middle" font-size="12" fill="#64748b">（时间轴未按比例绘制）</text>
+</svg>

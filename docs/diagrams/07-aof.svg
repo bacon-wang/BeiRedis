@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+  </defs>
+  <text x="400" y="36" text-anchor="middle" font-size="16" font-weight="bold">AOF：把写命令记到文件里，重启时再执行一遍</text>
+  <text x="30" y="70" font-weight="bold" fill="#475569">运行时</text>
+  <!-- memory (left) -->
+  <rect x="40" y="110" width="170" height="140" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="125" y="140" text-anchor="middle" font-weight="bold" fill="#2563eb">内存</text>
+  <text x="125" y="180" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13">name = tom</text>
+  <text x="125" y="208" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13">views = 2</text>
+  <!-- commands (middle) -->
+  <g font-family="Menlo, Consolas, monospace" font-size="13">
+    <rect x="300" y="86" width="150" height="34" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="315" y="108">SET name tom</text>
+    <rect x="300" y="136" width="150" height="34" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/><text x="315" y="158">GET name</text>
+    <rect x="300" y="186" width="150" height="34" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="315" y="208">INCR views</text>
+    <rect x="300" y="236" width="150" height="34" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="315" y="258">INCR views</text>
+  </g>
+  <text x="255" y="285" text-anchor="middle" font-size="12" fill="#64748b">执行</text>
+  <g stroke="#475569" stroke-width="1.5">
+    <line x1="300" y1="103" x2="214" y2="145" marker-end="url(#a)"/>
+    <line x1="300" y1="153" x2="214" y2="168" marker-end="url(#a)"/>
+    <line x1="300" y1="203" x2="214" y2="192" marker-end="url(#a)"/>
+    <line x1="300" y1="253" x2="214" y2="215" marker-end="url(#a)"/>
+  </g>
+  <!-- append arrows (writes only) -->
+  <g stroke="#ea580c" stroke-width="1.5">
+    <line x1="450" y1="103" x2="586" y2="140" marker-end="url(#ao)"/>
+    <line x1="450" y1="203" x2="586" y2="168" marker-end="url(#ao)"/>
+    <line x1="450" y1="253" x2="586" y2="196" marker-end="url(#ao)"/>
+  </g>
+  <text x="500" y="102" font-size="13" fill="#ea580c">追加</text>
+  <text x="462" y="158" font-size="12" fill="#64748b">只读，不写文件</text>
+  <!-- file -->
+  <path d="M590,96 L730,96 L760,126 L760,236 L590,236 z" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <path d="M730,96 L730,126 L760,126" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="604" y="117" font-weight="bold" fill="#ea580c">data.aof</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="13">
+    <text x="604" y="145">SET name tom</text><text x="604" y="173">INCR views</text><text x="604" y="201">INCR views</text>
+  </g>
+  <!-- divider -->
+  <line x1="20" y1="320" x2="780" y2="320" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,5"/>
+  <rect x="260" y="306" width="280" height="28" rx="8" fill="#ffffff"/>
+  <text x="400" y="325" text-anchor="middle" fill="#dc2626">进程退出 / 断电，内存清空</text>
+  <!-- after restart -->
+  <text x="30" y="370" font-weight="bold" fill="#475569">重启后</text>
+  <path d="M60,390 L200,390 L230,420 L230,500 L60,500 z" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <path d="M200,390 L200,420 L230,420" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="74" y="411" font-weight="bold" fill="#ea580c">data.aof</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="12">
+    <text x="74" y="436">SET name tom</text><text x="74" y="458">INCR views</text><text x="74" y="480">INCR views</text>
+  </g>
+  <line x1="230" y1="445" x2="436" y2="445" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="333" y="435" text-anchor="middle">从头逐行执行</text>
+  <rect x="440" y="400" width="200" height="90" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="540" y="425" text-anchor="middle" font-weight="bold" fill="#2563eb">内存</text>
+  <text x="540" y="458" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13">name = tom，views = 2</text>
+  <rect x="655" y="430" width="125" height="30" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="717" y="450" text-anchor="middle" font-size="13" fill="#16a34a">和退出前一样</text>
+  <text x="400" y="538" text-anchor="middle" font-size="12" fill="#64748b">AOF = Append Only File，只在文件末尾追加，不修改已写内容</text>
+</svg>

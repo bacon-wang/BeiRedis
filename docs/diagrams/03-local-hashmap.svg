@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+  </defs>
+  <text x="400" y="36" text-anchor="middle" font-size="16" font-weight="bold">每个程序各有一个 HashMap：数据对不上</text>
+  <rect x="40" y="220" width="110" height="60" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="95" y="255" text-anchor="middle">负载均衡</text>
+  <line x1="150" y1="250" x2="226" y2="130" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="230" y="80" width="230" height="100" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="245" y="102" font-weight="bold" fill="#2563eb">Java 程序 1</text>
+  <rect x="245" y="112" width="200" height="58" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+  <text x="255" y="129" font-size="12" fill="#64748b">自己的 HashMap</text>
+  <text x="255" y="146" font-family="Menlo, Consolas, monospace" font-size="13" fill="#16a34a">价格 = 99（新）</text>
+  <text x="255" y="163" font-family="Menlo, Consolas, monospace" font-size="13">浏览数 = 3</text>
+  <line x1="460" y1="130" x2="606" y2="210" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="150" y1="250" x2="226" y2="250" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="230" y="200" width="230" height="100" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="245" y="222" font-weight="bold" fill="#2563eb">Java 程序 2</text>
+  <rect x="245" y="232" width="200" height="58" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+  <text x="255" y="249" font-size="12" fill="#64748b">自己的 HashMap</text>
+  <text x="255" y="266" font-family="Menlo, Consolas, monospace" font-size="13" fill="#dc2626">价格 = 120（旧）</text>
+  <text x="255" y="283" font-family="Menlo, Consolas, monospace" font-size="13">浏览数 = 5</text>
+  <line x1="460" y1="250" x2="606" y2="250" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="150" y1="250" x2="226" y2="370" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="230" y="320" width="230" height="100" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="245" y="342" font-weight="bold" fill="#2563eb">Java 程序 3</text>
+  <rect x="245" y="352" width="200" height="58" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+  <text x="255" y="369" font-size="12" fill="#64748b">自己的 HashMap</text>
+  <text x="255" y="386" font-family="Menlo, Consolas, monospace" font-size="13" fill="#dc2626">价格 = 120（旧）</text>
+  <text x="255" y="403" font-family="Menlo, Consolas, monospace" font-size="13">浏览数 = 2</text>
+  <line x1="460" y1="370" x2="606" y2="290" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M610,190 L610,310 A60,16 0 0 0 730,310 L730,190" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <ellipse cx="670" cy="190" rx="60" ry="16" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="670" y="258" text-anchor="middle" font-weight="bold" fill="#ea580c">MySQL</text>
+  <text x="400" y="465" text-anchor="middle" fill="#dc2626">用户刷新一次看到 99，再刷新又变 120；浏览总数没法合起来</text>
+</svg>

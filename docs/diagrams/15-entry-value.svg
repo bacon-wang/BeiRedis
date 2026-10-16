@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="tri" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#ffffff" stroke="#475569" stroke-width="1.2"/></marker>
+  </defs>
+  <text x="400" y="32" text-anchor="middle" font-size="16" font-weight="bold">一个 key 在内存里的样子</text>
+
+  <!-- Entry object -->
+  <rect x="30" y="70" width="330" height="220" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="195" y="94" text-anchor="middle" font-weight="bold" fill="#2563eb">Entry 对象</text>
+  <line x1="30" y1="106" x2="360" y2="106" stroke="#2563eb" stroke-width="1.5"/>
+  <g font-family="Menlo, Consolas, monospace" font-size="13">
+    <text x="44" y="132">key: String = "mylist"</text>
+    <text x="44" y="172">value: Value</text>
+    <text x="44" y="212">expireAt: long = 1792000060000</text>
+    <text x="44" y="268">next: Entry</text>
+  </g>
+  <text x="44" y="232" font-size="12" fill="#64748b">（-1 表示永不过期）</text>
+  <g stroke="#93c5fd" stroke-width="1">
+    <line x1="30" y1="146" x2="360" y2="146"/>
+    <line x1="30" y1="186" x2="360" y2="186"/>
+    <line x1="30" y1="246" x2="360" y2="246"/>
+  </g>
+  <circle cx="160" cy="167" r="4" fill="#2563eb"/>
+  <circle cx="140" cy="263" r="4" fill="#2563eb"/>
+
+  <!-- next entry (dashed) -->
+  <rect x="30" y="350" width="200" height="60" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="130" y="376" text-anchor="middle" fill="#2563eb">另一个 Entry</text>
+  <text x="130" y="396" text-anchor="middle" font-size="12" fill="#64748b">同一个桶里的下一个</text>
+  <path d="M140,267 V348" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="150" y="315" font-size="12" fill="#2563eb">next 指向</text>
+
+  <!-- UML: abstract Value -->
+  <rect x="500" y="62" width="200" height="72" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
+  <text x="600" y="82" text-anchor="middle" font-size="12" fill="#64748b">«abstract»</text>
+  <text x="600" y="100" text-anchor="middle" font-weight="bold" font-style="italic">Value</text>
+  <line x1="500" y1="108" x2="700" y2="108" stroke="#475569" stroke-width="1.5"/>
+  <text x="514" y="126" font-family="Menlo, Consolas, monospace" font-size="13" font-style="italic">+ type(): String</text>
+
+  <!-- StringValue -->
+  <rect x="400" y="220" width="180" height="92" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="490" y="242" text-anchor="middle" font-weight="bold" fill="#2563eb">StringValue</text>
+  <line x1="400" y1="252" x2="580" y2="252" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="412" y="272" font-family="Menlo, Consolas, monospace" font-size="13">- s: String</text>
+  <text x="412" y="298" font-family="Menlo, Consolas, monospace" font-size="12" fill="#64748b">type() → "string"</text>
+
+  <!-- ListValue -->
+  <rect x="600" y="220" width="186" height="160" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="693" y="242" text-anchor="middle" font-weight="bold" fill="#2563eb">ListValue</text>
+  <line x1="600" y1="252" x2="786" y2="252" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="612" y="272" font-family="Menlo, Consolas, monospace" font-size="13">- items: MyList</text>
+  <text x="612" y="298" font-family="Menlo, Consolas, monospace" font-size="12" fill="#64748b">type() → "list"</text>
+  <text x="612" y="326" font-size="12" fill="#64748b">items 里装着：</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="13">
+    <rect x="618" y="336" width="50" height="30" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="668" y="336" width="50" height="30" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="718" y="336" width="50" height="30" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="643" y="356" text-anchor="middle">"a"</text>
+    <text x="693" y="356" text-anchor="middle">"b"</text>
+    <text x="743" y="356" text-anchor="middle">"c"</text>
+  </g>
+
+  <!-- inheritance arrows -->
+  <path d="M490,220 V180 H600 V134" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#tri)"/>
+  <path d="M693,220 V180 H600" fill="none" stroke="#475569" stroke-width="1.5"/>
+  <text x="610" y="172" font-size="12" fill="#64748b">extends（继承）</text>
+
+  <!-- value pointer -->
+  <path d="M160,167 H380 V410 H693 V384" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="400" y="432" font-size="12" fill="#2563eb">value 指向这个 key 的 ListValue 对象</text>
+
+  <text x="400" y="476" text-anchor="middle" font-size="12" fill="#64748b">Entry 只认 Value 这个父类型；具体是字符串还是列表，调用 type() 就知道</text>
+</svg>

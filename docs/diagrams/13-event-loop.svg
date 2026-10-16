@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" width="720" height="470" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+  </defs>
+  <text x="360" y="32" text-anchor="middle" font-size="16" font-weight="bold">单线程事件循环：一个线程照看所有连接</text>
+
+  <!-- thread label -->
+  <text x="40" y="66" font-size="13" fill="#64748b">唯一的线程（main）</text>
+
+  <!-- select box -->
+  <rect x="40" y="150" width="220" height="70" rx="35" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="150" y="180" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="bold" fill="#2563eb">selector.select()</text>
+  <text x="150" y="202" text-anchor="middle" font-size="13">等待任意连接有数据</text>
+
+  <!-- fan out arrows -->
+  <path d="M260,175 C300,175 300,110 336,110" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M260,185 L336,185" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M260,195 C300,195 300,260 336,260" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- connections -->
+  <g stroke-width="1.5">
+    <rect x="338" y="88" width="140" height="44" rx="8" fill="#f1f5f9" stroke="#475569"/>
+    <rect x="338" y="163" width="140" height="44" rx="8" fill="#f1f5f9" stroke="#475569"/>
+    <rect x="338" y="238" width="140" height="44" rx="8" fill="#f1f5f9" stroke="#475569"/>
+  </g>
+  <text x="408" y="107" text-anchor="middle" font-weight="bold">连接 A</text>
+  <text x="408" y="125" text-anchor="middle" font-size="12" fill="#16a34a">有数据</text>
+  <text x="408" y="182" text-anchor="middle" font-weight="bold">连接 B</text>
+  <text x="408" y="200" text-anchor="middle" font-size="12" fill="#64748b">没数据</text>
+  <text x="408" y="257" text-anchor="middle" font-weight="bold">连接 C</text>
+  <text x="408" y="275" text-anchor="middle" font-size="12" fill="#16a34a">有数据</text>
+
+  <line x1="478" y1="110" x2="526" y2="110" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/>
+  <line x1="478" y1="185" x2="526" y2="185" stroke="#475569" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a)"/>
+  <line x1="478" y1="260" x2="526" y2="260" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <rect x="528" y="88" width="152" height="44" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="604" y="115" text-anchor="middle" fill="#16a34a">处理 A 的一行</text>
+  <rect x="528" y="163" width="152" height="44" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="604" y="190" text-anchor="middle" fill="#64748b">跳过</text>
+  <rect x="528" y="238" width="152" height="44" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="604" y="265" text-anchor="middle" fill="#16a34a">处理 C 的一行</text>
+
+  <!-- loop back -->
+  <path d="M680,110 H700 V310 H150 V224" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ab)"/>
+  <path d="M680,260 H700" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+  <path d="M680,185 H700" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="425" y="330" text-anchor="middle" font-size="13" fill="#2563eb">处理完一轮，回到 select() 继续等（永远循环）</text>
+
+  <!-- bottom notes -->
+  <rect x="40" y="362" width="310" height="66" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="56" y="388" font-weight="bold" fill="#dc2626">注意</text>
+  <text x="56" y="412" fill="#dc2626">一条命令很慢 → 所有连接一起卡住</text>
+  <rect x="370" y="362" width="310" height="66" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="386" y="388" font-weight="bold" fill="#16a34a">好处</text>
+  <text x="386" y="412" fill="#16a34a">你的代码只在这一个线程里跑 → 不需要锁</text>
+
+  <text x="360" y="456" text-anchor="middle" font-size="12" fill="#64748b">A 和 C 是一个接一个处理的，不是同时处理</text>
+</svg>

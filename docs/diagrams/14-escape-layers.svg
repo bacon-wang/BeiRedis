@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 510" width="720" height="510" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<text x="360" y="32" text-anchor="middle" font-size="16" font-weight="bold">两层转义：各管各的</text>
+<text x="360" y="56" text-anchor="middle" font-size="13" fill="#64748b">例子：值是 a、换行、b 三个字符</text>
+<text x="40" y="100" font-weight="bold">① 内存里的值</text>
+<rect x="230" y="76" width="34" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="247.0" y="100" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#0f172a" font-weight="bold">a</text>
+<rect x="264" y="76" width="34" height="36" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="281.0" y="100" text-anchor="middle" font-size="20" fill="#dc2626" font-weight="bold">⏎</text>
+<rect x="298" y="76" width="34" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="315.0" y="100" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#0f172a" font-weight="bold">b</text>
+<text x="348" y="100" font-size="13" fill="#64748b">3 个字符，⏎ = 换行符</text>
+<line x1="300" y1="116" x2="300" y2="160" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/><rect x="320" y="124" width="220" height="28" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="430.0" y="143" text-anchor="middle" font-size="13" fill="#2563eb">你的 Reply 做显示转义</text>
+<text x="40" y="190" font-weight="bold">② Reply 返回</text>
+<rect x="230" y="166" width="34" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="247.0" y="190" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#2563eb" font-weight="bold">"</text>
+<rect x="264" y="166" width="34" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="281.0" y="190" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#2563eb" font-weight="bold">a</text>
+<rect x="298" y="166" width="34" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="315.0" y="190" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#2563eb" font-weight="bold">\</text>
+<rect x="332" y="166" width="34" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="349.0" y="190" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#2563eb" font-weight="bold">n</text>
+<rect x="366" y="166" width="34" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="383.0" y="190" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#2563eb" font-weight="bold">b</text>
+<rect x="400" y="166" width="34" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="417.0" y="190" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#2563eb" font-weight="bold">"</text>
+<text x="450" y="190" font-size="13" fill="#64748b">6 个字符：换行变成 \ 和 n</text>
+<line x1="300" y1="206" x2="300" y2="250" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/><rect x="320" y="214" width="122" height="28" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/><text x="381.0" y="233" text-anchor="middle" font-size="13" fill="#475569">框架做传输转义</text>
+<text x="40" y="280" font-weight="bold">③ 线路上</text>
+<rect x="230" y="256" width="34" height="36" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="247.0" y="280" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#475569" font-weight="bold">"</text>
+<rect x="264" y="256" width="34" height="36" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="281.0" y="280" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#475569" font-weight="bold">a</text>
+<rect x="298" y="256" width="34" height="36" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="315.0" y="280" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#475569" font-weight="bold">\</text>
+<rect x="332" y="256" width="34" height="36" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="349.0" y="280" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#475569" font-weight="bold">\</text>
+<rect x="366" y="256" width="34" height="36" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="383.0" y="280" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#475569" font-weight="bold">n</text>
+<rect x="400" y="256" width="34" height="36" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="417.0" y="280" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#475569" font-weight="bold">b</text>
+<rect x="434" y="256" width="34" height="36" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="451.0" y="280" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#475569" font-weight="bold">"</text>
+<text x="484" y="280" font-size="13" fill="#64748b">\ 再转义成 \\</text>
+<line x1="300" y1="296" x2="300" y2="340" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/><rect x="320" y="304" width="94" height="28" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/><text x="367.0" y="323" text-anchor="middle" font-size="13" fill="#475569">客户端还原</text>
+<text x="40" y="370" font-weight="bold">④ 打印出来</text>
+<rect x="230" y="346" width="34" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="247.0" y="370" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#16a34a" font-weight="bold">"</text>
+<rect x="264" y="346" width="34" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="281.0" y="370" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#16a34a" font-weight="bold">a</text>
+<rect x="298" y="346" width="34" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="315.0" y="370" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#16a34a" font-weight="bold">\</text>
+<rect x="332" y="346" width="34" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="349.0" y="370" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#16a34a" font-weight="bold">n</text>
+<rect x="366" y="346" width="34" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="383.0" y="370" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#16a34a" font-weight="bold">b</text>
+<rect x="400" y="346" width="34" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="417.0" y="370" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="15" fill="#16a34a" font-weight="bold">"</text>
+<text x="450" y="370" font-size="13" fill="#64748b">和 redis-cli 显示一致</text>
+<rect x="40" y="406" width="640" height="76" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="60" y="424" width="16" height="14" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="84" y="436">你只负责 ①→②：把值转成带引号、带 \n 的显示形式</text>
+<rect x="60" y="452" width="16" height="14" rx="3" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+<text x="84" y="464">②→③→④ 由框架做，你不用管</text>
+</svg>

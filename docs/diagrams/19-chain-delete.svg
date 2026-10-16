@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" width="800" height="540" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="agray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="ablue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="agreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="ared" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="aorange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker></defs>
+<text x="400.0" y="32" text-anchor="middle" font-size="16" font-weight="bold">链表删除的四种情况</text>
+<rect x="40" y="60" width="350" height="195" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5" />
+<text x="56" y="86" text-anchor="start" font-size="14" fill="#0f172a" font-weight="bold" >① 删头 A</text>
+<rect x="56" y="130" width="44" height="28" rx="4" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="78.0" y="149" text-anchor="middle" font-size="13" fill="#475569" font-family="Menlo, Consolas, monospace" >[i]</text>
+<rect x="126" y="130" width="44" height="28" rx="6" fill="#f8fafc" stroke="#475569" stroke-width="1.5" />
+<text x="148.0" y="149" text-anchor="middle" font-size="13" fill="#64748b" font-family="Menlo, Consolas, monospace" >A</text>
+<line x1="130" y1="144.0" x2="166" y2="144.0" stroke="#dc2626" stroke-width="1.5"/>
+<circle cx="170" cy="130" r="8" fill="#dc2626"/>
+<path d="M166.5,126.5 L173.5,133.5 M173.5,126.5 L166.5,133.5" stroke="#ffffff" stroke-width="1.8"/>
+<rect x="196" y="130" width="44" height="28" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+<text x="218.0" y="149" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >B</text>
+<rect x="266" y="130" width="44" height="28" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+<text x="288.0" y="149" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >C</text>
+<line x1="102" y1="144.0" x2="123" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)" stroke-dasharray="5,4"/>
+<line x1="172" y1="144.0" x2="193" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<line x1="242" y1="144.0" x2="263" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<line x1="312" y1="144.0" x2="333" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<text x="338" y="149" text-anchor="start" font-size="12" fill="#64748b" font-family="Menlo, Consolas, monospace" >null</text>
+<path d="M78.0,158 L78.0,188 L218.0,188 L218.0,161" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#agreen)"/>
+<text x="56" y="116" text-anchor="start" font-size="12" fill="#64748b" >改的是 table[i]（桶本身）</text>
+<rect x="56" y="210" width="318" height="30" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="215" y="230" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >table[i] = A.next</text>
+<rect x="410" y="60" width="350" height="195" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5" />
+<text x="426" y="86" text-anchor="start" font-size="14" fill="#0f172a" font-weight="bold" >② 删中间 B</text>
+<rect x="426" y="130" width="44" height="28" rx="4" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="448.0" y="149" text-anchor="middle" font-size="13" fill="#475569" font-family="Menlo, Consolas, monospace" >[i]</text>
+<rect x="496" y="130" width="44" height="28" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+<text x="518.0" y="149" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >A</text>
+<rect x="566" y="130" width="44" height="28" rx="6" fill="#f8fafc" stroke="#475569" stroke-width="1.5" />
+<text x="588.0" y="149" text-anchor="middle" font-size="13" fill="#64748b" font-family="Menlo, Consolas, monospace" >B</text>
+<line x1="570" y1="144.0" x2="606" y2="144.0" stroke="#dc2626" stroke-width="1.5"/>
+<circle cx="610" cy="130" r="8" fill="#dc2626"/>
+<path d="M606.5,126.5 L613.5,133.5 M613.5,126.5 L606.5,133.5" stroke="#ffffff" stroke-width="1.8"/>
+<rect x="636" y="130" width="44" height="28" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+<text x="658.0" y="149" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >C</text>
+<line x1="472" y1="144.0" x2="493" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<line x1="542" y1="144.0" x2="563" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)" stroke-dasharray="5,4"/>
+<line x1="612" y1="144.0" x2="633" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<line x1="682" y1="144.0" x2="703" y2="144.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<text x="708" y="149" text-anchor="start" font-size="12" fill="#64748b" font-family="Menlo, Consolas, monospace" >null</text>
+<path d="M530,158 L530,188 L658.0,188 L658.0,161" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#agreen)"/>
+<text x="426" y="116" text-anchor="start" font-size="12" fill="#64748b" >改的是 A 的 next</text>
+<rect x="426" y="210" width="318" height="30" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="585" y="230" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >prev.next = B.next</text>
+<rect x="40" y="270" width="350" height="195" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5" />
+<text x="56" y="296" text-anchor="start" font-size="14" fill="#0f172a" font-weight="bold" >③ 删尾 C</text>
+<rect x="56" y="340" width="44" height="28" rx="4" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="78.0" y="359" text-anchor="middle" font-size="13" fill="#475569" font-family="Menlo, Consolas, monospace" >[i]</text>
+<rect x="126" y="340" width="44" height="28" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+<text x="148.0" y="359" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >A</text>
+<rect x="196" y="340" width="44" height="28" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" />
+<text x="218.0" y="359" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >B</text>
+<rect x="266" y="340" width="44" height="28" rx="6" fill="#f8fafc" stroke="#475569" stroke-width="1.5" />
+<text x="288.0" y="359" text-anchor="middle" font-size="13" fill="#64748b" font-family="Menlo, Consolas, monospace" >C</text>
+<line x1="270" y1="354.0" x2="306" y2="354.0" stroke="#dc2626" stroke-width="1.5"/>
+<circle cx="310" cy="340" r="8" fill="#dc2626"/>
+<path d="M306.5,336.5 L313.5,343.5 M313.5,336.5 L306.5,343.5" stroke="#ffffff" stroke-width="1.8"/>
+<line x1="102" y1="354.0" x2="123" y2="354.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<line x1="172" y1="354.0" x2="193" y2="354.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<line x1="242" y1="354.0" x2="263" y2="354.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)" stroke-dasharray="5,4"/>
+<line x1="312" y1="354.0" x2="333" y2="354.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)" stroke-dasharray="5,4"/>
+<text x="338" y="359" text-anchor="start" font-size="12" fill="#64748b" font-family="Menlo, Consolas, monospace" >null</text>
+<path d="M230,368 L230,398" fill="none" stroke="#16a34a" stroke-width="1.5"/>
+<line x1="230" y1="398" x2="258" y2="398" stroke="#16a34a" stroke-width="1.5" marker-end="url(#agreen)"/>
+<text x="262" y="403" text-anchor="start" font-size="12" fill="#16a34a" font-family="Menlo, Consolas, monospace" >null</text>
+<text x="56" y="326" text-anchor="start" font-size="12" fill="#64748b" >改的是 B 的 next</text>
+<rect x="56" y="420" width="318" height="30" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="215" y="440" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >prev.next = null</text>
+<rect x="410" y="270" width="350" height="195" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5" />
+<text x="426" y="296" text-anchor="start" font-size="14" fill="#0f172a" font-weight="bold" >④ 删唯一一个 A</text>
+<rect x="426" y="340" width="44" height="28" rx="4" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="448.0" y="359" text-anchor="middle" font-size="13" fill="#475569" font-family="Menlo, Consolas, monospace" >[i]</text>
+<rect x="496" y="340" width="44" height="28" rx="6" fill="#f8fafc" stroke="#475569" stroke-width="1.5" />
+<text x="518.0" y="359" text-anchor="middle" font-size="13" fill="#64748b" font-family="Menlo, Consolas, monospace" >A</text>
+<line x1="500" y1="354.0" x2="536" y2="354.0" stroke="#dc2626" stroke-width="1.5"/>
+<circle cx="540" cy="340" r="8" fill="#dc2626"/>
+<path d="M536.5,336.5 L543.5,343.5 M543.5,336.5 L536.5,343.5" stroke="#ffffff" stroke-width="1.8"/>
+<line x1="472" y1="354.0" x2="493" y2="354.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)" stroke-dasharray="5,4"/>
+<line x1="542" y1="354.0" x2="563" y2="354.0" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)" stroke-dasharray="5,4"/>
+<text x="568" y="359" text-anchor="start" font-size="12" fill="#64748b" font-family="Menlo, Consolas, monospace" >null</text>
+<path d="M448.0,368 L448.0,398" fill="none" stroke="#16a34a" stroke-width="1.5"/>
+<line x1="448.0" y1="398" x2="478.0" y2="398" stroke="#16a34a" stroke-width="1.5" marker-end="url(#agreen)"/>
+<text x="482.0" y="403" text-anchor="start" font-size="12" fill="#16a34a" font-family="Menlo, Consolas, monospace" >null</text>
+<text x="426" y="326" text-anchor="start" font-size="12" fill="#64748b" >改的是 table[i]，桶变空</text>
+<rect x="426" y="420" width="318" height="30" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="585" y="440" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >table[i] = null</text>
+<rect x="40" y="488" width="720" height="34" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" />
+<text x="400" y="510" text-anchor="middle" font-size="14" fill="#dc2626" font-weight="bold" >注意：删头时要改的是 table[i]，不是某个节点的 next——最容易写错</text>
+</svg>

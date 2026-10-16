@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 670" width="800" height="670" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+<marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+</defs>
+<text x="400" y="32" text-anchor="middle" font-size="16" font-weight="bold">列表的四种进出方式</text>
+<text x="400" y="66" text-anchor="middle" fill="#64748b">初始列表 list</text>
+<rect x="340" y="80" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="360.0" y="103.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">a</text>
+<rect x="380" y="80" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="400.0" y="103.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="420" y="80" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="440.0" y="103.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<text x="326" y="103" text-anchor="end" fill="#2563eb">头（左，下标 0）</text>
+<text x="474" y="103" fill="#2563eb">尾（右）</text>
+<rect x="30" y="140" width="360" height="236" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="46" y="168" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="bold" fill="#2563eb">RPUSH list d</text>
+<rect x="70" y="210" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="90.0" y="233.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">a</text>
+<rect x="110" y="210" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="130.0" y="233.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="150" y="210" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="170.0" y="233.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<rect x="270" y="210" width="40" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="290" y="233" text-anchor="middle" font-family="Menlo, Consolas, monospace">d</text>
+<line x1="266" y1="228" x2="196" y2="228" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/>
+<text x="230" y="202" text-anchor="middle" font-size="13" fill="#16a34a">从右边进</text>
+<text x="70" y="290" fill="#64748b">结果：</text>
+<rect x="120" y="270" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="140.0" y="293.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">a</text>
+<rect x="160" y="270" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="180.0" y="293.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="200" y="270" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="220.0" y="293.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<rect x="240" y="270" width="40" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="260.0" y="293.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">d</text>
+<text x="46" y="358" font-size="12" fill="#64748b">返回新长度 4</text>
+<rect x="410" y="140" width="360" height="236" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="426" y="168" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="bold" fill="#2563eb">LPUSH list x y</text>
+<text x="426" y="219" font-size="13" fill="#64748b">① x 进左边</text>
+<rect x="590" y="196" width="40" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="610.0" y="219.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">x</text>
+<rect x="630" y="196" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="650.0" y="219.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">a</text>
+<rect x="670" y="196" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="690.0" y="219.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="710" y="196" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="730.0" y="219.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<text x="426" y="269" font-size="13" fill="#64748b">② y 进左边</text>
+<rect x="550" y="246" width="40" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="570.0" y="269.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">y</text>
+<rect x="590" y="246" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="610.0" y="269.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">x</text>
+<rect x="630" y="246" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="650.0" y="269.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">a</text>
+<rect x="670" y="246" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="690.0" y="269.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="710" y="246" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="730.0" y="269.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<text x="426" y="316" fill="#64748b">结果：</text>
+<rect x="550" y="294" width="40" height="36" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="570.0" y="317.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">y</text>
+<rect x="590" y="294" width="40" height="36" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="610.0" y="317.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">x</text>
+<rect x="630" y="294" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="650.0" y="317.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">a</text>
+<rect x="670" y="294" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="690.0" y="317.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="710" y="294" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="730.0" y="317.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<rect x="426" y="334" width="328" height="30" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+<text x="590" y="354" text-anchor="middle" font-size="13" fill="#ea580c">注意顺序反过来：y 在最前</text>
+<rect x="30" y="392" width="360" height="236" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="46" y="420" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="bold" fill="#2563eb">LPOP list</text>
+<rect x="70" y="462" width="40" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="90" y="485" text-anchor="middle" font-family="Menlo, Consolas, monospace">a</text>
+<line x1="174" y1="480" x2="114" y2="480" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/>
+<text x="142" y="454" text-anchor="middle" font-size="13" fill="#16a34a">从左边出</text>
+<rect x="180" y="462" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="200.0" y="485.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="220" y="462" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="240.0" y="485.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<text x="70" y="542" fill="#64748b">返回：</text><text x="120" y="542" font-family="Menlo, Consolas, monospace" fill="#16a34a">"a"</text>
+<text x="70" y="582" fill="#64748b">剩下：</text>
+<rect x="120" y="562" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="140.0" y="585.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<rect x="160" y="562" width="40" height="36" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="180.0" y="585.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<rect x="410" y="392" width="360" height="236" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="426" y="420" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="bold" fill="#2563eb">LPOP list</text>
+<text x="506" y="420" font-size="13" fill="#64748b">（弹到空：列表只剩 [c]）</text>
+<rect x="450" y="462" width="40" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="470" y="485" text-anchor="middle" font-family="Menlo, Consolas, monospace">c</text>
+<line x1="554" y1="480" x2="494" y2="480" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ag)"/>
+<text x="522" y="454" text-anchor="middle" font-size="13" fill="#16a34a">弹出 c</text>
+<rect x="560" y="462" width="40" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="616" y="485" fill="#64748b">列表为空</text>
+<line x1="580" y1="504" x2="580" y2="534" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="470" y="538" width="240" height="40" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="590" y="563" text-anchor="middle" fill="#dc2626">key 被自动删除</text>
+<text x="590" y="610" text-anchor="middle" font-size="12" fill="#64748b">之后 EXISTS list 返回 0</text>
+<text x="400" y="654" text-anchor="middle" font-size="12" fill="#64748b">L = Left（头），R = Right（尾）；PUSH 进、POP 出</text>
+</svg>

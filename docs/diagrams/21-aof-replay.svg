@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 552" width="800" height="552" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs><marker id="agray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="ablue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker><marker id="agreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker><marker id="ared" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="aorange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker></defs>
+<text x="400.0" y="32" text-anchor="middle" font-size="16" font-weight="bold">启动时重放 AOF：三种情况</text>
+<text x="150.0" y="66" text-anchor="middle" font-size="14" fill="#16a34a" font-weight="bold" >① 完整</text>
+<path d="M60,80 L216,80 L240,104 L240,190 L60,190 Z" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M216,80 L216,104 L240,104" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+<text x="74" y="100" text-anchor="start" font-size="11" fill="#64748b" >data.aof</text>
+<text x="80" y="126" text-anchor="start" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >SET a 1</text>
+<text x="139.3" y="126" text-anchor="start" font-size="12" fill="#64748b" >⏎</text>
+<text x="80" y="148" text-anchor="start" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >SET b 2</text>
+<text x="139.3" y="148" text-anchor="start" font-size="12" fill="#64748b" >⏎</text>
+<line x1="150.0" y1="194" x2="150.0" y2="220" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<rect x="40" y="224" width="220" height="92" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="150.0" y="244" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >split("\n", -1)</text>
+<text x="150.0" y="266" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Menlo, Consolas, monospace" >[ "SET a 1",</text>
+<text x="150.0" y="284" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Menlo, Consolas, monospace" >"SET b 2",</text>
+<text x="150.0" y="302" text-anchor="middle" font-size="12" fill="#16a34a" font-family="Menlo, Consolas, monospace" >"" ]</text>
+<line x1="150.0" y1="320" x2="150.0" y2="346" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<rect x="40" y="350" width="220" height="70" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" />
+<text x="150.0" y="374" text-anchor="middle" font-size="14" fill="#16a34a" font-weight="bold" >最后是空串</text>
+<text x="150.0" y="396" text-anchor="middle" font-size="14" fill="#16a34a" >→ 全部重放，正常启动</text>
+<text x="400.0" y="66" text-anchor="middle" font-size="14" fill="#ea580c" font-weight="bold" >② 末尾半行</text>
+<path d="M310,80 L466,80 L490,104 L490,190 L310,190 Z" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M466,80 L466,104 L490,104" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+<text x="324" y="100" text-anchor="start" font-size="11" fill="#64748b" >data.aof</text>
+<text x="330" y="126" text-anchor="start" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >SET a 1</text>
+<text x="389.3" y="126" text-anchor="start" font-size="12" fill="#64748b" >⏎</text>
+<text x="330" y="148" text-anchor="start" font-size="13" fill="#dc2626" font-family="Menlo, Consolas, monospace" >SET b</text>
+<text x="375.5" y="148" text-anchor="start" font-size="12" fill="#dc2626" >← 没有 ⏎</text>
+<line x1="400.0" y1="194" x2="400.0" y2="220" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<rect x="290" y="224" width="220" height="92" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="400.0" y="244" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >split("\n", -1)</text>
+<text x="400.0" y="266" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Menlo, Consolas, monospace" >[ "SET a 1",</text>
+<text x="400.0" y="284" text-anchor="middle" font-size="12" fill="#dc2626" font-family="Menlo, Consolas, monospace" >"SET b" ]</text>
+<line x1="400.0" y1="320" x2="400.0" y2="346" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<rect x="290" y="350" width="220" height="70" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5" />
+<text x="400.0" y="374" text-anchor="middle" font-size="14" fill="#ea580c" font-weight="bold" >打印警告 → 截掉半行</text>
+<text x="400.0" y="396" text-anchor="middle" font-size="14" fill="#ea580c" >→ 重放其余 → 正常启动</text>
+<text x="650.0" y="66" text-anchor="middle" font-size="14" fill="#dc2626" font-weight="bold" >③ 中间坏行</text>
+<path d="M560,80 L716,80 L740,104 L740,190 L560,190 Z" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M716,80 L716,104 L740,104" fill="none" stroke="#ea580c" stroke-width="1.5"/>
+<text x="574" y="100" text-anchor="start" font-size="11" fill="#64748b" >data.aof</text>
+<text x="580" y="126" text-anchor="start" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >SET a 1</text>
+<text x="639.3" y="126" text-anchor="start" font-size="12" fill="#64748b" >⏎</text>
+<text x="580" y="148" text-anchor="start" font-size="13" fill="#dc2626" font-family="Menlo, Consolas, monospace" >FOO</text>
+<text x="607.7" y="148" text-anchor="start" font-size="12" fill="#64748b" >⏎</text>
+<text x="580" y="170" text-anchor="start" font-size="13" fill="#0f172a" font-family="Menlo, Consolas, monospace" >SET b 2</text>
+<text x="639.3" y="170" text-anchor="start" font-size="12" fill="#64748b" >⏎</text>
+<line x1="650.0" y1="194" x2="650.0" y2="220" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<rect x="540" y="224" width="220" height="92" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" />
+<text x="650.0" y="244" text-anchor="middle" font-size="13" fill="#0f172a" >逐行解析</text>
+<text x="580" y="268" text-anchor="start" font-size="12" fill="#16a34a" >第 1 行</text>
+<text x="636" y="268" text-anchor="start" font-size="12" fill="#16a34a" font-family="Menlo, Consolas, monospace" >SET a 1</text>
+<text x="710" y="268" text-anchor="start" font-size="12" fill="#16a34a" >✓</text>
+<text x="580" y="288" text-anchor="start" font-size="12" fill="#dc2626" >第 2 行</text>
+<text x="636" y="288" text-anchor="start" font-size="12" fill="#dc2626" font-family="Menlo, Consolas, monospace" >FOO</text>
+<text x="710" y="288" text-anchor="start" font-size="12" fill="#dc2626" >×</text>
+<text x="650.0" y="308" text-anchor="middle" font-size="11" fill="#64748b" >（后面没机会看了）</text>
+<line x1="650.0" y1="320" x2="650.0" y2="346" stroke="#475569" stroke-width="1.5" marker-end="url(#agray)"/>
+<rect x="540" y="350" width="220" height="92" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" />
+<text x="650.0" y="374" text-anchor="middle" font-size="14" fill="#dc2626" font-weight="bold" >第 2 行坏了</text>
+<text x="650.0" y="396" text-anchor="middle" font-size="14" fill="#dc2626" >→ 打印行号和内容</text>
+<text x="650.0" y="418" text-anchor="middle" font-size="14" fill="#dc2626" >→ 拒绝启动（exit 1）</text>
+<path d="M400.0,420 L400.0,462" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="5,4"/>
+<rect x="290" y="462" width="220" height="46" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="400.0" y="481" text-anchor="middle" font-size="12" fill="#64748b" >不截的话，下次追加会拼成</text>
+<text x="400.0" y="499" text-anchor="middle" font-size="12" fill="#dc2626" font-family="Menlo, Consolas, monospace" >SET bSET c 3</text>
+<text x="400.0" y="540" text-anchor="middle" font-size="12" fill="#64748b" >重放时 dispatch(args, true)：不会再写回 AOF</text>
+</svg>

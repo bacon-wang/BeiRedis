@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="800" height="380" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="400" y="36" text-anchor="middle" font-size="16" font-weight="bold">各种操作有多慢（对数刻度）</text>
+  <!-- grid: 70px per decade, 100ns at x=270 -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="270" y1="64" x2="270" y2="300"/><line x1="340" y1="64" x2="340" y2="300"/>
+    <line x1="410" y1="64" x2="410" y2="300"/><line x1="480" y1="64" x2="480" y2="300"/>
+    <line x1="550" y1="64" x2="550" y2="300"/><line x1="620" y1="64" x2="620" y2="300"/>
+    <line x1="690" y1="64" x2="690" y2="300"/>
+  </g>
+  <line x1="200" y1="64" x2="200" y2="300" stroke="#475569" stroke-width="1.5"/>
+  <line x1="200" y1="300" x2="720" y2="300" stroke="#475569" stroke-width="1.5"/>
+  <g font-size="12" fill="#64748b" text-anchor="middle">
+    <text x="270" y="318">100ns</text><text x="340" y="318">1µs</text><text x="410" y="318">10µs</text>
+    <text x="480" y="318">100µs</text><text x="550" y="318">1ms</text><text x="620" y="318">10ms</text>
+    <text x="690" y="318">100ms</text>
+  </g>
+  <!-- labels -->
+  <g text-anchor="end">
+    <text x="190" y="95">读一次内存</text>
+    <text x="190" y="140">SSD 随机读一次</text>
+    <text x="190" y="185">同机房网络往返一次</text>
+    <text x="190" y="230">机械硬盘随机读一次</text>
+    <text x="190" y="275">一次普通数据库查询</text>
+  </g>
+  <!-- bars -->
+  <rect x="200" y="79" width="70" height="22" rx="3" fill="#16a34a"/>
+  <text x="278" y="95" fill="#16a34a">100 纳秒</text>
+  <rect x="200" y="124" width="280" height="22" rx="3" fill="#ea580c"/>
+  <text x="488" y="140" fill="#ea580c">0.1 毫秒</text>
+  <rect x="200" y="169" width="329" height="22" rx="3" fill="#475569"/>
+  <text x="537" y="185" fill="#475569">0.5 毫秒</text>
+  <rect x="200" y="214" width="420" height="22" rx="3" fill="#dc2626"/>
+  <text x="628" y="230" fill="#dc2626">10 毫秒</text>
+  <rect x="200" y="259" width="469" height="22" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="200" y="259" width="399" height="22" rx="3" fill="#dc2626"/>
+  <text x="677" y="275" fill="#dc2626">约 5–50 毫秒</text>
+  <text x="400" y="352" text-anchor="middle" font-size="12" fill="#64748b">每向右一格慢 10 倍。内存比磁盘快几千到几万倍。数值为数量级估计。</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" width="720" height="500" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="360" y="32" text-anchor="middle" font-size="16" font-weight="bold">LRANGE 的下标：正着数、倒着数</text>
+<text x="214" y="83" text-anchor="end" fill="#2563eb" font-size="13">正下标</text>
+<text x="214" y="157" text-anchor="end" fill="#ea580c" font-size="13">负下标</text>
+<text x="256.0" y="83" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb" font-weight="bold">0</text>
+<rect x="230" y="96" width="52" height="40" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="256.0" y="121" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">a</text>
+<text x="256.0" y="157" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#ea580c" font-weight="bold">-5</text>
+<text x="308.0" y="83" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb" font-weight="bold">1</text>
+<rect x="282" y="96" width="52" height="40" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="308.0" y="121" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">b</text>
+<text x="308.0" y="157" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#ea580c" font-weight="bold">-4</text>
+<text x="360.0" y="83" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb" font-weight="bold">2</text>
+<rect x="334" y="96" width="52" height="40" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="360.0" y="121" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">c</text>
+<text x="360.0" y="157" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#ea580c" font-weight="bold">-3</text>
+<text x="412.0" y="83" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb" font-weight="bold">3</text>
+<rect x="386" y="96" width="52" height="40" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="412.0" y="121" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">d</text>
+<text x="412.0" y="157" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#ea580c" font-weight="bold">-2</text>
+<text x="464.0" y="83" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb" font-weight="bold">4</text>
+<rect x="438" y="96" width="52" height="40" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="464.0" y="121" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14">e</text>
+<text x="464.0" y="157" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="13" fill="#ea580c" font-weight="bold">-1</text>
+<text x="506" y="121" font-size="13" fill="#64748b">-1 永远是最后一个</text>
+<line x1="40" y1="180" x2="680" y2="180" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="40" y="223" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb">LRANGE l 1 3</text>
+<rect x="200" y="200" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="222.0" y="223.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">a</text>
+<rect x="244" y="200" width="44" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="266.0" y="223.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">b</text>
+<rect x="288" y="200" width="44" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="310.0" y="223.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">c</text>
+<rect x="332" y="200" width="44" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="354.0" y="223.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">d</text>
+<rect x="376" y="200" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="398.0" y="223.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">e</text>
+<text x="436" y="223" font-family="Menlo, Consolas, monospace" font-size="13" fill="#16a34a">→ b c d</text>
+<text x="40" y="283" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb">LRANGE l -2 -1</text>
+<rect x="200" y="260" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="222.0" y="283.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">a</text>
+<rect x="244" y="260" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="266.0" y="283.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">b</text>
+<rect x="288" y="260" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="310.0" y="283.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">c</text>
+<rect x="332" y="260" width="44" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="354.0" y="283.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">d</text>
+<rect x="376" y="260" width="44" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="398.0" y="283.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">e</text>
+<text x="436" y="283" font-family="Menlo, Consolas, monospace" font-size="13" fill="#16a34a">→ d e</text>
+<text x="40" y="343" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb">LRANGE l 3 100</text>
+<rect x="200" y="320" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="222.0" y="343.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">a</text>
+<rect x="244" y="320" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="266.0" y="343.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">b</text>
+<rect x="288" y="320" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="310.0" y="343.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">c</text>
+<rect x="332" y="320" width="44" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="354.0" y="343.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">d</text>
+<rect x="376" y="320" width="44" height="36" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+<text x="398.0" y="343.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">e</text>
+<text x="436" y="343" font-family="Menlo, Consolas, monospace" font-size="13" fill="#16a34a">→ d e</text>
+<text x="580" y="343" font-size="12" fill="#ea580c">stop 超出，截到末尾</text>
+<text x="40" y="403" font-family="Menlo, Consolas, monospace" font-size="13" fill="#2563eb">LRANGE l 4 2</text>
+<rect x="200" y="380" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="222.0" y="403.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">a</text>
+<rect x="244" y="380" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="266.0" y="403.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">b</text>
+<rect x="288" y="380" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="310.0" y="403.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">c</text>
+<rect x="332" y="380" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="354.0" y="403.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">d</text>
+<rect x="376" y="380" width="44" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="398.0" y="403.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="14" fill="#94a3b8">e</text>
+<text x="436" y="403" font-family="Menlo, Consolas, monospace" font-size="13" fill="#64748b">→ (empty array)</text>
+<text x="580" y="403" font-size="12" fill="#ea580c">start &gt; stop</text>
+<text x="360" y="472" text-anchor="middle" font-size="12" fill="#64748b">start 和 stop 都包含在内（闭区间）；负数先加上长度再算，超出范围自动截断，不报错</text>
+</svg>

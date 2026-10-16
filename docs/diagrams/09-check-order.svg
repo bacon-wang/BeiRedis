@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" width="720" height="640" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+  </defs>
+  <text x="360" y="32" text-anchor="middle" font-size="16" font-weight="bold">每条命令的检查顺序</text>
+
+  <!-- input -->
+  <rect x="90" y="52" width="280" height="40" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="112" y="77" font-family="Menlo, Consolas, monospace" font-size="13">args</text>
+  <text x="150" y="77">（已切好的参数数组）</text>
+  <line x1="230" y1="92" x2="230" y2="112" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- diamonds -->
+  <g stroke-width="1.5">
+    <polygon points="230,114 350,150 230,186 110,150" fill="#dbeafe" stroke="#2563eb"/>
+    <polygon points="230,224 350,260 230,296 110,260" fill="#dbeafe" stroke="#2563eb"/>
+    <polygon points="230,334 350,370 230,406 110,370" fill="#dbeafe" stroke="#2563eb"/>
+    <polygon points="230,440 360,480 230,520 100,480" fill="#dbeafe" stroke="#2563eb"/>
+  </g>
+  <text x="230" y="155" text-anchor="middle">命令存在？</text>
+  <text x="230" y="265" text-anchor="middle">参数个数符合 arity？</text>
+  <text x="230" y="375" text-anchor="middle">key 类型对？</text>
+  <text x="230" y="476" text-anchor="middle">参数格式对？</text>
+  <text x="230" y="494" text-anchor="middle" font-size="13" fill="#64748b">（整数、选项）</text>
+
+  <!-- yes arrows -->
+  <g stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrG)">
+    <line x1="230" y1="186" x2="230" y2="222"/>
+    <line x1="230" y1="296" x2="230" y2="332"/>
+    <line x1="230" y1="406" x2="230" y2="438"/>
+    <line x1="230" y1="520" x2="230" y2="554"/>
+  </g>
+  <g fill="#16a34a" font-size="13">
+    <text x="240" y="209">是</text>
+    <text x="240" y="319">是</text>
+    <text x="240" y="427">是</text>
+    <text x="240" y="542">是</text>
+  </g>
+
+  <!-- success -->
+  <rect x="120" y="556" width="220" height="40" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="230" y="581" text-anchor="middle">执行，返回结果</text>
+
+  <!-- no arrows -->
+  <g stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrR)">
+    <line x1="350" y1="150" x2="388" y2="150"/>
+    <line x1="350" y1="260" x2="388" y2="260"/>
+    <line x1="350" y1="370" x2="388" y2="370"/>
+    <line x1="360" y1="480" x2="388" y2="480"/>
+  </g>
+  <g fill="#dc2626" font-size="13">
+    <text x="360" y="143">否</text>
+    <text x="360" y="253">否</text>
+    <text x="360" y="363">否</text>
+    <text x="366" y="473">否</text>
+  </g>
+
+  <!-- error boxes -->
+  <g fill="#fee2e2" stroke="#dc2626" stroke-width="1.5">
+    <rect x="390" y="130" width="315" height="40" rx="8"/>
+    <rect x="390" y="240" width="315" height="40" rx="8"/>
+    <rect x="390" y="350" width="315" height="40" rx="8"/>
+    <rect x="390" y="460" width="315" height="40" rx="8"/>
+  </g>
+  <g font-family="Menlo, Consolas, monospace" font-size="13" fill="#dc2626">
+    <text x="402" y="155">ERR unknown command …</text>
+    <text x="402" y="265">ERR wrong number of arguments …</text>
+    <text x="402" y="375">WRONGTYPE …</text>
+    <text x="402" y="485">ERR not an integer / syntax error …</text>
+  </g>
+
+  <text x="360" y="626" text-anchor="middle" font-size="12" fill="#64748b">从上往下依次检查，任何一步不通过就立刻返回错误，后面的步骤不再执行</text>
+</svg>

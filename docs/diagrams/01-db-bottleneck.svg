@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" font-family="PingFang SC, Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="14" fill="#0f172a">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+  </defs>
+  <text x="400" y="36" text-anchor="middle" font-size="16" font-weight="bold">所有请求都压在数据库上</text>
+  <!-- users -->
+  <g fill="#f1f5f9" stroke="#475569" stroke-width="1.5">
+    <circle cx="60" cy="110" r="9"/><path d="M45,140 a15,15 0 0 1 30,0 z"/>
+    <circle cx="110" cy="110" r="9"/><path d="M95,140 a15,15 0 0 1 30,0 z"/>
+    <circle cx="60" cy="170" r="9"/><path d="M45,200 a15,15 0 0 1 30,0 z"/>
+    <circle cx="110" cy="170" r="9"/><path d="M95,200 a15,15 0 0 1 30,0 z"/>
+    <circle cx="60" cy="230" r="9"/><path d="M45,260 a15,15 0 0 1 30,0 z"/>
+    <circle cx="110" cy="230" r="9"/><path d="M95,260 a15,15 0 0 1 30,0 z"/>
+  </g>
+  <text x="85" y="290" text-anchor="middle" fill="#64748b">每秒几万人</text>
+  <line x1="140" y1="185" x2="196" y2="185" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- java -->
+  <rect x="200" y="145" width="130" height="80" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="265" y="190" text-anchor="middle" font-weight="bold" fill="#2563eb">Java 程序</text>
+  <!-- arrows -->
+  <line x1="330" y1="165" x2="616" y2="165" stroke="#475569" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="473" y="155" text-anchor="middle" font-size="13">① 查商品信息（几万次，结果都一样）</text>
+  <line x1="330" y1="210" x2="616" y2="210" stroke="#dc2626" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="473" y="232" text-anchor="middle" font-size="13" fill="#dc2626">② 浏览数 + 1（几万次抢同一行）</text>
+  <!-- cylinder -->
+  <path d="M620,120 L620,250 A60,16 0 0 0 740,250 L740,120" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <ellipse cx="680" cy="120" rx="60" ry="16" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="680" y="185" text-anchor="middle" font-weight="bold" fill="#ea580c">MySQL</text>
+  <text x="680" y="207" text-anchor="middle" font-size="13" fill="#ea580c">（数据在磁盘）</text>
+  <!-- problem tags -->
+  <g font-size="13" fill="#dc2626" text-anchor="middle">
+    <rect x="470" y="295" width="84" height="28" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="512" y="314">查询排队</text>
+    <rect x="566" y="295" width="84" height="28" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="608" y="314">页面变慢</text>
+    <rect x="662" y="295" width="112" height="28" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="718" y="314">加锁抢同一行</text>
+  </g>
+  <line x1="680" y1="270" x2="680" y2="290" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="400" y="375" text-anchor="middle" font-size="12" fill="#64748b">同样的查询被重复执行几万次，热门商品的那一行被反复加锁更新</text>
+</svg>
