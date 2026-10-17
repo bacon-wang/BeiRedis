@@ -1,0 +1,99 @@
+# Ticket 工作流：学习包
+
+`ready-for-human` 的 ticket 由用户亲手实现。用户对 Java、JUnit、Redis 都陌生，issue 里只有"参考章节 / 文件位置 / 关键词"不够用，所以每个 ticket 开始时由 agent 生成一份**学习包**：用户照着它能一步步写出实现。
+
+## 分工
+
+| Agent | 用户 |
+|---|---|
+| 学习包、骨架代码、全部 JUnit 测试 | 实现代码（让测试变绿） |
+| 检查：跑测试 + review | 写，卡住时要提示 |
+| 合并到 main、关闭 issue | 决定何时合并 |
+
+Agent **不给出用户要写的实现代码**，最多给到 L3 提示（见下）。例外：用户说"这部分你写"的部分（例如转义这类对用户没练习价值的），agent 直接实现并提交。
+
+## 用户口令
+
+| 用户说 | Agent 做 |
+|---|---|
+| 开始 #N | 生成学习包（下面"开始"） |
+| 检查 / 帮我看看 | 跑测试 + review（"检查"） |
+| 提示 / 卡住了 | 只给当前步骤的下一级提示，不跳级 |
+| 这部分你写 | 直接实现那部分并提交到 issue 分支，学习包里标"已提供" |
+| 合并 #N / 完成 | 合并到 main、关闭 issue（"合并"） |
+
+## 开始 #N
+
+1. `gh issue view N`：读验收标准、Blocked by、实现提示。Blocked by 里有未关闭的 issue 就先告诉用户，问是否继续。
+2. 读 `docs/mini-redis-design.md` 里提示列出的章节，以及 `src/` 里已有的代码（后面 ticket 的签名要接上用户前面写的实现）。
+3. 从最新 main 建分支 `issue-N`。
+4. 写**骨架**：类、字段、方法签名都写好，方法体只有 `// TODO 步骤k` 加 `throw new UnsupportedOperationException();`。必须能编译。
+5. 写**测试**：每条验收标准至少一个 `@Test`，每个测试上方用中文注释说明它在测什么、用了哪个 JUnit API。只用 Jupiter（`org.junit.jupiter.api`），不用 JUnit 4。
+6. **自证测试正确**：临时写一份参考实现，`scripts/run-tests.sh` 全绿；再换回骨架，确认能编译、新测试全红。参考实现不提交、不展示给用户。
+7. 提交骨架和测试，推送 `issue-N`。
+8. `gh issue edit N --body-file ...`：保留原正文，把"实现提示"块替换成"学习包"（模板见下）。
+9. 回复用户：分支名、要改的文件、第一步做什么。
+
+## 学习包模板
+
+写进 issue 正文，标题固定为 `## 学习包`，下次开始前看到它就说明已经生成过。
+
+```markdown
+## 学习包
+
+分支：`issue-N`（`git switch issue-N`）。要改的文件：`src/...`（骨架里的 TODO）。
+跑测试：IDEA 里点测试类左边的绿三角，或 `scripts/run-tests.sh`。
+
+### 1. 行为表
+
+| 输入 | 期望 | 测试 |
+|---|---|---|
+| ... | ... | `testName` |
+
+（Redis 行为照抄设计文档第 3 节示例；和真 Redis 不同的地方注明"见 §9"。）
+
+### 2. 新知识卡
+
+只写本题**第一次出现**的语法 / API，每张卡：一句话说明 + 5 行以内、和本题无关的独立示例 + 设计文档章节。前面 ticket 讲过的不重复。
+
+### 3. 分步计划
+
+| 步 | 做什么 | 做完后变绿的测试 |
+|---|---|---|
+| 1 | ... | `a`、`b` |
+
+3～6 步，每步只改一个方法或一小段，写完就能跑测试看到进展。
+
+### 4. 分级提示
+
+每步一组，默认折叠，卡住了从 L1 开始逐级展开：
+
+<details><summary>步骤 1 · L1 思路</summary>换个角度提问，不给做法。</details>
+<details><summary>步骤 1 · L2 伪代码</summary>中文伪代码，不是 Java。</details>
+<details><summary>步骤 1 · L3 关键一行</summary>最难的那一行 Java，或最容易错的那个点。</details>
+
+### 5. 常见错误
+
+本题容易踩的坑，例如 `==` 比较 String、`assertEquals` 参数顺序、`>>` 和 `>>>`、数组越界。
+```
+
+行为表、分步计划、提示必须和骨架签名、测试名一致。
+
+## 检查
+
+1. 拉取用户在 `issue-N` 上的提交，跑 `scripts/run-tests.sh`，报告通过数。失败的贴出断言信息，并指出对应学习包的哪一步。
+2. 对照验收标准逐条核对。
+3. Review 只给方向和理由，不直接改用户的代码。优先级：正确性 > 多余代码 > 可读性。
+
+## 合并
+
+前提：用户说了"合并 #N"或"完成"，并且测试全绿。
+
+1. 提交信息带 `closes #N`。
+2. main 是 `issue-N` 的祖先就 fast-forward：`git push origin issue-N:main`。不是就停下问用户，不 force push。
+3. 确认 issue 已关闭，没关就 `gh issue close N --comment "..."`，列出相关提交。
+4. 提醒用户在主 checkout 执行 `git switch main && git pull --ff-only`。
+
+## 跑测试
+
+`scripts/run-tests.sh`：编译 `src` 和 `test`，用 JUnit Launcher API 运行全部测试，输出到 `out/cli/`（已被 git 忽略）。依赖 `~/.m2` 里 IDEA 下载的 JUnit 5.14 jar，不需要 Maven，也不联网。
