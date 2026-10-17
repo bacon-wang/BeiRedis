@@ -14,4 +14,6 @@ Single-context: root `GLOSSARY.md` + `docs/adr/`. See `docs/agents/domain.md`.
 
 ### Ticket 工作流
 
-`ready-for-human` 的 ticket 由用户实现，agent 负责学习包、骨架、测试和合并，不写用户要写的实现。口令（"开始 #N" / "检查" / "提示" / "合并 #N"）和步骤见 `docs/agents/ticket-workflow.md`。跑测试：`scripts/run-tests.sh`。
+只在项目根目录的 `main` 分支上工作：不建分支，不用 worktree。
+
+`ready-for-human` 的 ticket 由用户实现，agent 负责学习包、骨架、测试，不写用户要写的实现。口令（"开始 #N" / "检查" / "提示" / "完成 #N"）和步骤见 `docs/agents/ticket-workflow.md`。跑测试：`scripts/run-tests.sh`。

@@ -2,13 +2,17 @@
 
 `ready-for-human` 的 ticket 由用户亲手实现。用户对 Java、JUnit、Redis 都陌生，issue 里只有"参考章节 / 文件位置 / 关键词"不够用，所以每个 ticket 开始时由 agent 生成一份**学习包**：用户照着它能一步步写出实现。
 
+## 工作位置
+
+只有一个目录（项目根目录）、一个分支 `main`。不建分支，不用 worktree，直接改、直接提交到 main。提交时只 `git add` 自己改的文件，不要带上用户未提交的代码。
+
 ## 分工
 
 | Agent | 用户 |
 |---|---|
 | 学习包、骨架代码、全部 JUnit 测试 | 实现代码（让测试变绿） |
 | 检查：跑测试 + review | 写，卡住时要提示 |
-| 合并到 main、关闭 issue | 决定何时合并 |
+| 关闭 issue | 决定何时算完成 |
 
 Agent **不给出用户要写的实现代码**，最多给到 L3 提示（见下）。例外：用户说"这部分你写"的部分（例如转义这类对用户没练习价值的），agent 直接实现并提交。
 
@@ -19,20 +23,19 @@ Agent **不给出用户要写的实现代码**，最多给到 L3 提示（见下
 | 开始 #N | 生成学习包（下面"开始"） |
 | 检查 / 帮我看看 | 跑测试 + review（"检查"） |
 | 提示 / 卡住了 | 只给当前步骤的下一级提示，不跳级 |
-| 这部分你写 | 直接实现那部分并提交到 issue 分支，学习包里标"已提供" |
-| 合并 #N / 完成 | 合并到 main、关闭 issue（"合并"） |
+| 这部分你写 | 直接实现那部分并提交，学习包里标"已提供" |
+| 完成 #N | 提交、推送、关闭 issue（"完成"） |
 
 ## 开始 #N
 
 1. `gh issue view N`：读验收标准、Blocked by、实现提示。Blocked by 里有未关闭的 issue 就先告诉用户，问是否继续。
 2. 读 `docs/mini-redis-design.md` 里提示列出的章节，以及 `src/` 里已有的代码（后面 ticket 的签名要接上用户前面写的实现）。
-3. 从最新 main 建分支 `issue-N`。
-4. 写**骨架**：类、字段、方法签名都写好，方法体只有 `// TODO 步骤k` 加 `throw new UnsupportedOperationException();`。必须能编译。
-5. 写**测试**：每条验收标准至少一个 `@Test`，每个测试上方用中文注释说明它在测什么、用了哪个 JUnit API。只用 Jupiter（`org.junit.jupiter.api`），不用 JUnit 4。
-6. **自证测试正确**：临时写一份参考实现，`scripts/run-tests.sh` 全绿；再换回骨架，确认能编译、新测试全红。参考实现不提交、不展示给用户。
-7. 提交骨架和测试，推送 `issue-N`。
-8. `gh issue edit N --body-file ...`：保留原正文，把"实现提示"块替换成"学习包"（模板见下）。
-9. 回复用户：分支名、要改的文件、第一步做什么。
+3. 写**骨架**：类、字段、方法签名都写好，方法体只有 `// TODO 步骤k` 加 `throw new UnsupportedOperationException();`。必须能编译。
+4. 写**测试**：每条验收标准至少一个 `@Test`，每个测试上方用中文注释说明它在测什么、用了哪个 JUnit API。只用 Jupiter（`org.junit.jupiter.api`），不用 JUnit 4。
+5. **自证测试正确**：临时写一份参考实现，`scripts/run-tests.sh` 全绿；再换回骨架，确认能编译、新测试全红。参考实现不提交、不展示给用户。
+6. 提交骨架和测试到 main 并推送。
+7. `gh issue edit N --body-file ...`：保留原正文，把"实现提示"块替换成"学习包"（模板见下）。
+8. 回复用户：要改的文件、第一步做什么。
 
 ## 学习包模板
 
@@ -41,7 +44,7 @@ Agent **不给出用户要写的实现代码**，最多给到 L3 提示（见下
 ```markdown
 ## 学习包
 
-分支：`issue-N`（`git switch issue-N`）。要改的文件：`src/...`（骨架里的 TODO）。
+要改的文件：`src/...`（骨架里的 TODO）。
 跑测试：IDEA 里点测试类左边的绿三角，或 `scripts/run-tests.sh`。
 
 ### 1. 行为表
@@ -81,18 +84,16 @@ Agent **不给出用户要写的实现代码**，最多给到 L3 提示（见下
 
 ## 检查
 
-1. 拉取用户在 `issue-N` 上的提交，跑 `scripts/run-tests.sh`，报告通过数。失败的贴出断言信息，并指出对应学习包的哪一步。
+1. 跑 `scripts/run-tests.sh`，报告通过数。失败的贴出断言信息，并指出对应学习包的哪一步。用户的代码可能还没提交，直接看工作区。
 2. 对照验收标准逐条核对。
 3. Review 只给方向和理由，不直接改用户的代码。优先级：正确性 > 多余代码 > 可读性。
 
-## 合并
+## 完成
 
-前提：用户说了"合并 #N"或"完成"，并且测试全绿。
+前提：用户说了"完成 #N"，并且测试全绿。
 
-1. 提交信息带 `closes #N`。
-2. main 是 `issue-N` 的祖先就 fast-forward：`git push origin issue-N:main`。不是就停下问用户，不 force push。
-3. 确认 issue 已关闭，没关就 `gh issue close N --comment "..."`，列出相关提交。
-4. 提醒用户在主 checkout 执行 `git switch main && git pull --ff-only`。
+1. 提交用户的实现，提交信息写 `issue N：...（closes #N）`，推送 main，GitHub 会自动关闭 issue。
+2. 确认 issue 已关闭，没关就 `gh issue close N --comment "..."`，列出相关提交。
 
 ## 跑测试
 
